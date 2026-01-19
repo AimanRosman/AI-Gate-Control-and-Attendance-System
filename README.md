@@ -20,6 +20,30 @@ An open-source, AI-powered access control and attendance tracking system using *
 
 ---
 
+---
+
+## 🧠 System Overview
+
+This system is designed to provide secure, automated access control for gates or doors using computer vision.
+
+1.  **Vision Layer (Python)**:
+    *   Captures video feed from an IP Camera or Webcam.
+    *   **YOLOv8** detects if a person is present (body detection).
+    *   **Face Recognition** identifies the person against a database of known faces.
+    *   If a face is recognized, it checks the current time window for Attendance (Clock-In/Out).
+2.  **Communication Layer (HTTP)**:
+    *   If access is granted, the Python script sends an HTTP request to the ESP8266.
+    *   Different endpoints are called for specific users (e.g., `/akmal`, `/admin`) to trigger personalized audio.
+3.  **Hardware Layer (ESP8266)**:
+    *   **ESP8266** receives the command.
+    *   **DFPlayer Mini** plays the corresponding greeting (e.g., "Welcome, Akmal").
+    *   **Relay** activates for 5 seconds to unlock the door/gate.
+4.  **Logging Layer (Cloud)**:
+    *   Attendance inputs are logged to a **Google Sheet** with timestamps.
+    *   A snapshot of the event is uploaded to **Google Drive/ImgBB** for evidence.
+
+---
+
 ## 🛠️ Hardware Requirements
 
 1.  **Computer/Server**: To run the Python computer vision script (Windows/Linux/Raspberry Pi 4+ recommended).
