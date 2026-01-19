@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+venv/
+env/
+
+# Configuration (Sensitive)
+config.py
+service_account.json
+secrets.h
+
+# Data & Logs
+known_faces/
+daily_attendance.json
+*.log
+*.jpg
+*.png
+*.jpeg
+
+# Arduino
+*.elf
+*.bin
+*.hex
+
+# OS
+.DS_Store
+Thumbs.db

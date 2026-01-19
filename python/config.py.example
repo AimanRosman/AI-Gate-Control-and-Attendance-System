@@ -1,0 +1,67 @@
+
+import os
+from datetime import time as dt_time
+
+# --- 1. Camera Configuration ⚙️ ---
+# RTSP URL or Camera ID (0 for webcam)
+CAMERA_URL = "rtsp://username:password@192.168.1.X/stream1"
+OUTPUT_SIZE = (1280, 720)
+
+# ROI (Region of Interest) - [X_start, Y_start, Width, Height]
+ROI_COORDINATES = [400, 100, 500, 500] 
+
+# --- 2. Hardware Integation (ESP8266) 📡 ---
+ESP8266_IP = "192.168.1.X"  
+ESP8266_PORT = 80
+
+# --- 3. Face Recognition Data 👤 ---
+FACE_DATA_DIR = "known_faces" 
+
+# --- 4. Attendance Settings 📅 ---
+DAILY_STATUS_FILE = "daily_attendance_status.json"
+
+# Time Windows
+CHECK_IN_START = dt_time(6, 0, 0)       # Start of check-in
+CHECK_IN_END = dt_time(8, 0, 0)         # End of "On Time" check-in
+LATE_CHECK_IN_END = dt_time(12, 0, 0)   # End of "Late" check-in
+CHECK_OUT_START = dt_time(17, 0, 0)     # Start of check-out (Mon-Fri)
+SATURDAY_CHECK_OUT_START = dt_time(13, 0, 0) # Start of check-out (Sat)
+CHECK_OUT_END = dt_time(23, 59, 59)     # End of valid check-out time
+
+LATE_THRESHOLD = dt_time(8, 0, 0)       # Time after which a check-in is "LATE"
+
+# --- 5. Google Drive / Sheets Integration ☁️ ---
+SERVICE_ACCOUNT_FILE = 'service_account.json' 
+SPREADSHEET_NAME = "Attendance Sheet Name"
+FACE_CROP_SIZE = (200, 200)
+
+# Image Hosting Configuration
+USE_IMGBB = True 
+IMGBB_API_KEY = "YOUR_IMGBB_API_KEY" 
+
+USE_IMGUR = False
+IMGUR_CLIENT_ID = "YOUR_IMGUR_CLIENT_ID"
+
+USE_SHARED_DRIVE = False
+GOOGLE_DRIVE_FOLDER_ID = None  # Optional: Folder ID for uploads
+SHARED_DRIVE_ID = None         # Optional: Shared Drive ID
+
+# --- 6. Detection Settings 🕵️ ---
+FACE_RECOGNITION_TOLERANCE = 0.4
+RESIZE_FACTOR = 0.5 
+
+# Performance Optimization
+YOLO_FRAME_SKIP = 1         
+FACE_RECOGNITION_SKIP = 3   
+YOLO_CONFIDENCE_THRESHOLD = 0.5
+
+# Delays and Cooldowns
+CUSTOMER_PRESENCE_WAIT_TIME = 2.0 
+ADMIN_COOLDOWN_TIME = 10.0 # Seconds between repeated notifications
+CAPTURE_COOLDOWN = 5.0 
+STABILITY_FRAMES_REQUIRED = 2 
+
+# --- 7. Audio Configuration 🔊 ---
+# Users who have custom audio files greeting them
+# Ensure these match the subdirectory names in 'known_faces'
+ADMINS_WITH_AUDIO = ["User1", "User2"] 

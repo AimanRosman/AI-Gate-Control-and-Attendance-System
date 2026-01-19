@@ -1,0 +1,9 @@
+opencv-python
+numpy
+face_recognition
+requests
+torch
+ultralytics
+gspread
+oauth2client
+google-api-python-client
