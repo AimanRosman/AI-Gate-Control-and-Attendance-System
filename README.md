@@ -123,4 +123,4 @@ opensource_release/
 
 ## 📄 License
 
-This project is open-source. Feel free to modify and distribute.
+This project is licensed under the **MIT License**. See the `LICENSE` file for details.
