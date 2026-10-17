@@ -4,6 +4,9 @@ __pycache__/
 *$py.class
 *.so
 .env
+.env.*
+!.env.example
+.venv/
 venv/
 env/
 
@@ -15,6 +18,8 @@ secrets.h
 # Data & Logs
 known_faces/
 daily_attendance.json
+daily_attendance_status.json
+yolov8n.pt
 *.log
 *.jpg
 *.png
